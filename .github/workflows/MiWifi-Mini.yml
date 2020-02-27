@@ -61,6 +61,7 @@ jobs:
         run: |
           rm -f ./.config
           wget http://www.womoe.top/fls/.xiaomi.config
+          mv .xiaomi.config .config
           make defconfig
 
       - name: Make download
