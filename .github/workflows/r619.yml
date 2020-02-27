@@ -7,7 +7,7 @@
 # <https://github.com/KFERMercer/OpenWrt-CI>
 # 
 
-name: MiWifi-Mini
+name: R619
 
 on:
   push:
