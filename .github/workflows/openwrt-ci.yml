@@ -50,7 +50,10 @@ jobs:
           ./scripts/feeds install -a
 
       - name: Generate configuration file
-        run: make defconfig
+        run: |
+          wget http://aventador.womoe.top/file/x64.config
+          mv x64.config .config
+          make defconfig
 
       - name: Make download
         run: |
