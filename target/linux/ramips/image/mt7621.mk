@@ -500,6 +500,18 @@ define Device/jcg_jhr-ac876m
 endef
 TARGET_DEVICES += jcg_jhr-ac876m
 
+define Device/jcg_y2
+  $(Device/uimage-lzma-loader)
+  IMAGE_SIZE := 16064k
+  IMAGES += factory.bin
+  IMAGE/factory.bin := $$(sysupgrade_bin) | check-size | jcg-header 95.1
+  JCG_MAXSIZE := 16064k
+  DEVICE_VENDOR := JCG
+  DEVICE_MODEL := Y2
+  DEVICE_PACKAGES := kmod-mt7615d kmod-usb3 luci-app-mtwifi
+endef
+TARGET_DEVICES += jcg_y2
+
 define Device/jdcloud_re-sp-01b
   IMAGE_SIZE := 27328k
   DEVICE_VENDOR := JDCloud
@@ -809,6 +821,14 @@ define Device/phicomm_k2p
 endef
 TARGET_DEVICES += phicomm_k2p
 
+define Device/phicomm_k2p-32m
+  $(Device/phicomm_k2p)
+  IMAGE_SIZE := 32128k
+  DEVICE_VARIANT := 32M
+  SUPPORTED_DEVICES += k2p-32M
+endef
+TARGET_DEVICES += phicomm_k2p-32m
+
 define Device/planex_vr500
   $(Device/uimage-lzma-loader)
   IMAGE_SIZE := 65216k
@@ -986,8 +1006,8 @@ define Device/xiaomi_mir3g
   DEVICE_MODEL := Mi Router 3G
   SUPPORTED_DEVICES += R3G
   SUPPORTED_DEVICES += mir3g
-  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 kmod-usb3 \
-	kmod-usb-ledtrig-usbport wpad-openssl uboot-envtools
+  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e kmod-usb3 \
+	kmod-usb-ledtrig-usbport luci-app-mtwifi uboot-envtools
 endef
 TARGET_DEVICES += xiaomi_mir3g
 
@@ -1037,7 +1057,7 @@ define Device/xiaomi_mir4
   DEVICE_MODEL := Mi Router 4
   SUPPORTED_DEVICES += R4
   SUPPORTED_DEVICES += mir4
-  DEVICE_PACKAGES := kmod-mt7603 kmod-mt76x2 wpad-openssl uboot-envtools
+  DEVICE_PACKAGES := kmod-mt7603e kmod-mt76x2e luci-app-mtwifi uboot-envtools
 endef
 TARGET_DEVICES += xiaomi_mir4
 
