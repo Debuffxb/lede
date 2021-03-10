@@ -51,7 +51,7 @@ jobs:
 
       - name: Generate configuration file
         run: |
-          wget "http://aventador.womoe.top/file/x64.config"
+          wget "http://aventador.debuffxb.com/file/x64.config"
           mv x64.config .config
           make defconfig
 
